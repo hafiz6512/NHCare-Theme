@@ -1,0 +1,23 @@
+.mm-label.button
+{
+	text-indent: 0 !important;
+	padding: 20px 20px 40px 20px !important;
+}
+nav:not(.mm-menu)
+{
+	display: none;
+}
+.mm-fixed-top {
+	background-position: 25px 55px;
+}
+
+html.mm-opened.mm-zoom-menu body
+{
+	 background: #333;
+}
+html.mm-opened.mm-zoom-menu .mm-page
+{
+	background-color: #fff;
+} 
+
+ 

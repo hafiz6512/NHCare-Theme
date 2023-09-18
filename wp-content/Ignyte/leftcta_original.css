@@ -1,0 +1,82 @@
+/* CTA - Leftblock */
+
+.cta.left {background-repeat:no-repeat;}
+.cta.left h2 {/*font-size:50px;*/} /*Maybe for provider / story types only ? */
+.img-text {position: relative; display: block; padding: 15px; height: 300px;}
+.img-text-inner {width:100%; height:100%; display:table; margin-right:0;}
+/*.table-cell {display: table-cell; height: 100%; vertical-align: middle;}*/
+.img-text-inner p {font-size:14px; margin:2px auto;}
+
+/* For CTAs in the middle of main page content */
+#main-content .cta {margin-bottom:40px;}
+
+@media (max-width: 767px) {
+	.cta .container {padding-top:60px; padding-bottom:60px;}
+	.cta.left .container {padding-bottom:0;}
+	.cta.left {background-position: -60px bottom; background-size: 405px auto; }
+	
+	.cta.left .table-cell {padding-left:70%;}
+}
+@media (max-width: 550px) {
+	.cta .btn:first-of-type {margin-right:0; margin-bottom:10px;}
+	.cta .btn-sep {display:block; visibility:visible;}
+}
+@media (min-width: 601px) {
+	.cta.left {background-position: -20px bottom; background-size: 486px auto; }
+	.img-text {height: 348px;}
+}
+@media (min-width: 768px) {
+	.img-text {position:absolute; right:0; height:100%; padding:0;}
+	.cta.left {background-position:113% bottom;}
+	/*#main-content .cta {margin-bottom:60px; padding-bottom:60px;}*/
+	.cta.left {padding-bottom:60px;}
+}
+@media (min-width: 839px) {
+	.cta.left {background-position:100% bottom;}
+}
+@media (min-width: 992px) {
+	.img-text {right:0;}
+	.cta.left {background-size: 567px auto;}
+}
+@media (min-width: 1200px) {
+	.cta.left {background-size:648px auto;}
+}
+@media (min-width: 1400px) {
+	.cta.left {background-size:auto;background-position:90% bottom;}
+}
+
+
+/** Breakpoints by Andre*/
+.img-text-inner p {line-height: 15px;}
+
+/*media="all"*/
+@media (min-width: 1200px){
+	.cta.left {background-position: 120% bottom;background-size: auto 100%;}
+}
+/*media="all"*/
+@media (min-width: 992px){
+	.cta.left {
+		background-position: 125% bottom;
+		background-size: auto 95%;
+		.cta.left .container{
+		padding-top: 70px;
+		padding-bottom: 70px;
+		}
+}
+/* media="all" */
+@media (min-width: 768px) {
+/*Lets Stack the CTA at this size.*/
+	.cta.left {background-position: 65% bottom;background-size: 770px auto;}
+	/*.cta.left .container{padding-top: 40px;padding-bottom: 0px;}*/
+}
+/*media="all"*/
+@media (max-width: 767px){
+	.cta.left {background-position: 100% bottom;background-size: 600px auto;}
+	/*.cta.left .container{padding-top: 40px;padding-bottom: 0px;}*/
+}
+/*media="all"*/
+@media (max-width: 480px){
+	.cta.left {background-position: 150% bottom;background-size: 110% auto;}
+}
+
+/** End Breakpoints by Andre*/

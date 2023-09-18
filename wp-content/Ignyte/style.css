@@ -1,0 +1,147 @@
+/*
+Theme Name: Ignyte-1
+Theme URI: http://www.ignytebrands.com/
+Description: A Theme with Bootstrap
+Author: Javier Monrove, Eric Elliot
+Author URI: http://www.ignytebrands.com/
+Version: 1.2.10
+
+Tags: responsive, white, bootstrap
+A Theme with Bootstrap
+*/
+
+/* Global */
+html {font-size:16px; font-size:1rem;}
+body {font-size:16px; font-size:1rem; line-height:1.5; color:#ccc; background-color:#fff; overflow-x:hidden;}
+
+/*Typography */
+h1 {font-size:48px; font-size:3rem;}
+h2 {font-size:40px; font-size:2.5rem;}
+h3 {font-size:32px; font-size:2rem;}
+h4 {font-size:38px; font-size:1.75rem;}
+h5 {font-size:24px; font-size:1.5rem;}
+h6 {font-size:20px; font-weight:bold;}
+
+p, ol, ul {font-size:1rem;}
+
+header {position:relative; z-index:999;}
+
+img {max-width:100%;}
+
+/* Nav */
+.navbar {min-height:inherit; margin-bottom: 0; border-radius:0; border: none; background-color:#ddd;}
+.navbar-collapse {padding-left:0; padding-right:0;}
+.navbar-nav>li>a, .navbar-nav>li ul.sub-menu>li>a {font-size:16px; font-size:1rem; line-height:1.5; padding:16px;}
+.nav>li:hover>a, .nav>li:focus>a, .nav>li.menu-item-has-children:hover>a, .nav>li.menu-item-has-children:hover {background-color:#ccc;}
+.navbar-nav>li ul.sub-menu {list-style:none; margin:0; padding:0; display:none; position:absolute; left:-999em;}
+.navbar-nav>li:hover ul.sub-menu {display:block; top:100%; left:auto; width:100%; z-index:999;}
+.navbar-nav>li ul.sub-menu>li {margin:0; padding:0;}
+.navbar-nav>li ul.sub-menu>li>a {}
+.navbar-nav>li ul.sub-menu>li>a:hover {text-decoration:none;}
+
+/* Global & Main */
+#global-nav-wrap .navbar-nav>li>a {font-size:14px; padding:10px 16px;}
+#global-nav-wrap .navbar-right .textwidget {font-size:14px; padding:10px 0;}
+#main-nav-wrap {background-color:#F90; width:100%;}
+ul#menu-main-menu {float: right;}
+#main-nav .navbar-nav>li {}
+#main-nav .navbar-nav>li>a {padding-top:48px; padding-bottom:48px;}
+#main-nav .navbar-nav>li>form {padding-top:42px; padding-bottom:42px;}
+#main-nav .navbar-nav>li:hover ul.sub-menu, #main-nav-wrap .navbar-nav>li>a:hover ul.sub-menu {background-color:#F90;}
+
+.navbar-brand {height:120px; padding:12px 0; float:none; display:table-cell; vertical-align:middle;}
+.navbar-toggle .icon-bar {background: #fff;height: 4px;}
+
+/* For sliding search and logo cover in desktop - METHOD 1 */
+/*@media (min-width: 768px) {
+.navbar-header {position:absolute;}
+#main-nav .navbar-nav>li {/width:135px; text-align:center;}
+#main-nav .navbar-nav>li>a {background-color:#F90;}
+#main-nav .navbar-nav>li>span, #main-nav .navbar-nav>li>a:hover {}
+#main-nav .navbar-nav>li.search-nav {width:auto;}
+#main-nav .navbar-nav>li.search-nav input#search {width:135px;}
+#main-nav .navbar-nav>li.search-nav input#search:active, #main-nav .navbar-nav>li.search-nav input#search:focus {width:235px;}
+}*/
+
+/* Footer */
+footer {background-color:#ddd;}
+.footer-bottom-wrap {background-color:#ccc;}
+.foot-br {text-align:right;}
+.foot-br .textwidget {padding:16px 0;}
+
+.dir-item .col-md-5{ margin-top:-5px;margin-bottom:-5px;}
+
+/* Sidebar */
+#sidebar{margin:10px -15px 0; background-color:transparent; padding:16px 15px;}
+@media (min-width: 768px) {
+	#sidebar{margin:10px auto 0;  padding:16px 24px;}
+}
+#sidebar h3 {font-size:24px; font-size:1.5rem; margin-top:0;}
+#sidebar ul {list-style:none; padding:0; margin:0 auto 16px; font-size:16px; font-size:1.rem;}
+
+/* Top Page Banners / Wraps - 'vertical-align:middle' the inner contents */
+.banner-image {display:table; width:100%; padding:0; margin:0 auto; height:320px; background-repeat:no-repeat; background-size:cover; background-position:center center;}
+.banner-content, .table-cell {display:table-cell; height:100%; vertical-align:middle;}
+.banner-content {width:100%;}
+.single-top-wrap {height:auto;}
+.single-top-wrap > .container, .single-top-wrap > .container > .row {height:100%;}
+.single-top-wrap .headings-wrap, .single-top-wrap .img-wrap {display:table; float:none; text-align:center;}
+.single-top-wrap .img-circ {width:200px; height:200px; margin:20px auto; border-radius:50%;}
+@media (min-width: 420px) {
+	.single-top-wrap .img-circ {width:280px; height:280px;}
+}
+@media (min-width: 768px) {
+	.single-top-wrap {height:320px;}
+	.single-top-wrap .headings-wrap, .single-top-wrap .img-wrap {height:100%;}
+	.single-top-wrap .headings-wrap {text-align:left;}
+	.single-top-wrap .img-wrap {float:right;}
+	.single-top-wrap .img-circ {width:220px; height:220px; margin:30px auto;}
+	.banner-image {height:450px;}
+}
+@media (min-width: 992px) {
+	.single-top-wrap {height:360px;}
+	.single-top-wrap .img-circ {width:280px; height:280px;}
+}
+@media (min-width: 1200px) {
+	.single-top-wrap {height:400px;}
+	.single-top-wrap .img-circ {width:342px; height:342px;}
+	}
+@media (min-width: 1600px) and (min-height:820px) {
+	.banner-image {height:600px;}
+}
+@media (min-width: 1600px) {
+	.banner-image {height:700px;}
+}
+@media (min-width: 2000px) {
+	.banner-image {height:820px;}
+}
+/* Page Layouts */
+#main-content {padding-top:32px; padding-top:2rem;}
+@media (max-width:767px) {
+	#main-content {padding-top: 0;}
+}
+/* Flexslider - Remove margin, padding, border, make fullwidth */
+.flexslider {margin:0 auto; background: none; border: none; position: relative;-webkit-border-radius: 0;-moz-border-radius: 0;-o-border-radius: 0;border-radius: 0;-webkit-box-shadow: none;-moz-box-shadow: none;-o-box-shadow: none;box-shadow: none;}
+ul.slides li>.container {width:100%; padding:0;}
+
+
+/* Lead in copy and page titles */
+.lead-copy h1, .lead-copy h2, .lead-copy h3, .lead-copy h4, .lead-copy p {/*text-align:center;*/}
+.lead-copy h1, .lead-copy h2, .lead-copy h3, .lead-copy h4, .page-title {margin-top:10px; line-height:1;}
+
+.main-column .lead-copy h1, .main-column .lead-copy h2, .main-column .lead-copy h3, .main-column .lead-copy h4, .main-column .lead-copy p {text-align:left;}
+
+/* Pagination - posts, singles, search results */
+.pag-wrap .container {padding-top:20px; padding-bottom:20px;}
+.prev-link {float:left;}
+.next-link {float:right;}
+
+/* Map Stuff */
+#map{height:625px;}
+
+/* Locations */
+ul.locations {list-style:none; padding:0;}
+/* Double column lists */
+.locations dd {margin-left:20px; display:list-item;list-style-type:disc;}
+.locations dd .row {display: inline-block; width: 100%; vertical-align: middle;}
+.locations dd.no-bullet {list-style-type:none;}
