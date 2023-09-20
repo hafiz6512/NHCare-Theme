@@ -1,11 +1,15 @@
 <?php
 
-error_reporting(0);
+// error_reporting(0);
+// add_filter("gform_confirmation_anchor", create_function("","return false;"));
 
-add_filter("gform_confirmation_anchor", create_function("","return false;"));
+add_filter("gform_confirmation_anchor", function() {
+    return false;
+});
 
-function add_noscript_tag($tag)
-{
+
+
+function add_noscript_tag($tag){
     $noScript = <<<END
 <noscript>
 This functionality is implemented using Javascript. It cannot work without it, etc...
@@ -524,3 +528,4 @@ foreach($searcharray as $search)
 
 // add_action( 'wp_head', 'remove_location_schema' );
 add_filter('eTapPayment_sendIP', '__return_false');
+

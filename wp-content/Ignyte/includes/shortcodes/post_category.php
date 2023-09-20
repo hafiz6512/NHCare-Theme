@@ -569,7 +569,9 @@ function getvideo2slide($ids,$view_button_label)
         //var_dump(file_get_contents($thumbnail[0]));
         $meta_values = get_post_meta($p->ID);
         // $docmeta = get_post_meta($doc->ID);
-        $fallback = $meta_values["ignyte-service-fallback-image"][0];
+        if (isset($meta_values["ignyte-service-fallback-image"])){
+            $fallback = $meta_values["ignyte-service-fallback-image"][0];
+        }
         $videoselect = $meta_values["video-checkbox"][0];
         //$svg[$i]=file_get_contents($thumbnail[0]);
         //$svg[$i]=file_get_contents($thumbnail);
@@ -637,10 +639,10 @@ function ignyte_news_slider_shortcode($atts)
             'post_type'      => 'post',
             'lang'           => $slug,
             'post_status'    => 'publish');
-    if ($showhome != '') {
-        $args['meta_key'] = 'home-checkbox';
-        $args['meta_value'] = 'yes';
-    }
+    // if ($showhome != '') {
+    //     $args['meta_key'] = 'home-checkbox';
+    //     $args['meta_value'] = 'yes';
+    // }
 
     $post = get_posts($args);
     $return = "";
@@ -672,11 +674,15 @@ function ignyte_news_slider_shortcode($atts)
         $tday = get_the_date("d", $p->ID);
         $tmonth = get_the_date("F", $p->ID);
         $tyear = get_the_date("Y", $p->ID);
-        $image = $thumbnail[0];
+        if($thumbnail){
+            $image = $thumbnail[0];
+        }
         // var_dump(file_get_contents($thumbnail[0]));
 		$meta_values = get_post_meta($p->ID);
        // $docmeta = get_post_meta($doc->ID);
-        $fallback = $meta_values["ignyte-service-fallback-image"][0];
+        if (isset($meta_values["ignyte-service-fallback-image"])){
+            $fallback = $meta_values["ignyte-service-fallback-image"][0];
+        }
         $videoselect = $meta_values["video-checkbox"][0];
         //$svg[$i]=file_get_contents($thumbnail[0]);
         //$svg[$i]=file_get_contents($thumbnail);

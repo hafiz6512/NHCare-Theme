@@ -1,8 +1,16 @@
 <?
+
+// $template_file = get_template_file();
+$template_file = get_page_template_slug();
+
 /***Meta box extra content for pages***/
 // Get information on the template being used for current page, based on this we will control the different meta boxes being displayed
-$post_id = $_GET['post'] ? $_GET['post'] : $_POST['post_ID'] ;
-$template_file = get_post_meta($post_id,'_wp_page_template',TRUE);
+
+// if ($_SERVER["REQUEST_METHOD"] == "POST"){
+// 	$id = get_the_ID();
+// 	$post_id = $_GET['post'] ? $_GET['post'] : $id ;
+// 	$template_file = get_post_meta($post_id,'_wp_page_template',TRUE);
+// }
 
 
 /** Show meta box for slider options: */
@@ -345,8 +353,9 @@ add_action( 'save_post', 'ignyte_title_save_post_data' );
 
 
 /** Show meta box for Custom Sidebar Template options: */
-if (is_admin() && strstr($template_file,"page-custom-sidebar") )
+if (is_admin() && strstr($template_file, "page-custom-sidebar") ){
 	add_action('admin_menu', 'ignyte_page_custom_sidebar_meta_box');
+}
 
 	
 // This function tells WP to add a new "meta box"
@@ -437,9 +446,14 @@ function ignyte_bottom_services_shortcode_box_contents() {
 }
 // Hook things in, late enough so that add_meta_box() is defined
 function ignyte_bottom_services_shortcode_save_post_data($post_id){
-	if ( !wp_verify_nonce( $_POST['ignyte_bottom_services_shortcode_box_nonce'], basename( __FILE__ ) ) ) {
+	// if ( !wp_verify_nonce( $_POST['ignyte_bottom_services_shortcode_box_nonce'], basename( __FILE__ ) ) ) {
+	// 	return;
+	// }
+
+	if ( isset( $_POST['ignyte_bottom_services_shortcode_box_nonce'] ) && wp_verify_nonce( $_POST['ignyte_bottom_services_shortcode_box_nonce'], basename( __FILE__ ) ) ) {
 		return;
 	}
+
 	if ( !current_user_can( 'edit_post', $post_id ) ) {
 		return;
 	}

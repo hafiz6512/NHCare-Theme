@@ -178,12 +178,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 </head>
 <body <?php body_class(); ?> data-spy="scroll" data-target="#page-subnav" data-offset='135'>
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WQ6GXDH" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-			<div id="sched-by-text" class="container-fluid">
-			<div class="row text-center">
-				<div class="sched-by-text-text"><a href="/message-doctor/" target="_self" title="Messaging information to doctor">Message Your Doctor</a></div>
+	<div id="sched-by-text" class="container-fluid">
+		<div class="row text-center">
+			<div class="sched-by-text-text"><a href="/message-doctor/" target="_self" title="Messaging information to doctor">Message Your Doctor</a></div>
 		</div>
 	</div>	
 		<nav id="menu" class="">
+    <div>Hello</div>
 
             <ul>
 
@@ -217,7 +218,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
                 <li class="search-nav">
 
-                   <!--- <form role="search" method="get" id="search" action="/" ><input placeholder="<?php //echo $search_placeholder; ?>" name="s" class="form-control" type="text" autocomplete="off"  value="<?php// the_search_query(); ?>"></form> --->
+
 				  
 
 
