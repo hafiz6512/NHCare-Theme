@@ -7627,3 +7627,38 @@ color: #5EB7B3;
 	padding-right: 10px;
   }
 }
+
+#yxt-SearchBar-autocomplete--nhyextsearchbar{
+    position: absolute;
+}
+#yxt-SearchBar-autocomplete--nhyextsearchbar .yxt-AutoComplete{
+    background: #fff;
+    padding: 15px;
+    border-radius: 6px;
+}
+ul#menu-main-menu #yxt-SearchBar-autocomplete--nhyextsearchbar ul li{
+    padding: 8px 0;
+    display: block;
+    line-height: 1.3;
+}
+ul#yxt-AutoComplete-results li:last-child,
+ul#menu-main-menu #yxt-SearchBar-autocomplete--nhyextsearchbar ul li:last-child{
+    padding: 0;
+}
+
+.yxt-SearchBar button{
+    line-height: 1;
+}
+
+.map-opt-header .row,
+.margin-0.row.filters{
+    padding-bottom: 0 !important;
+}
+
+
+
+
+
+
+
+
