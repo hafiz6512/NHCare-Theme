@@ -398,22 +398,28 @@ function ignyte_locations_shortcode($atts)
             $startminite=(int)$startminite;
             $OPT = $mm[0];
 
-            if ($openfirst[1] == 'PM') {
-                $OPT = $openfirst[0] + 12;
+            if ( isset($openfirst[1]) == 'PM') {
+                if( isset( $openfirst[0] ) ){
+                    $OPT = 12;
+                }
             }
-            $OPT=$OPT.$startminite;
+            $OPT = $OPT.$startminite;
 
             $COT = $closefirst[0];
             $mm2 = explode(":", $COT);
             $COT = $mm2[0];
-            $endminite = $mm2[1]+10;
-            if($endminite=='')
-            {
-                $endminite=10;
+
+            $endminite = 10;
+            if(isset($mm2[1])){
+                $endminite = $mm2[1] + 10;
+            } else {
+                $endminite = 10;
             }
 
-            if ($closefirst[1] == 'PM') {
-                $COT = $closefirst[0] + 12;
+            if ( isset($closefirst[1]) == 'PM') {
+                if( isset( $closefirst[0] ) ){
+                    $COT = 12;
+                }
             }
 
             $COT=$COT.$endminite;
@@ -583,7 +589,7 @@ function ignyte_locations_shortcode($atts)
                     $dat223 = explode('|', $datainner);
                     $opentime = pll__('Closed');
 
-                    if ($dat223[2] != '' & $dat223[3] != '') {
+                    if ( isset($dat223[2]) != '' & isset($dat223[3]) != '') {
                         $opentime = $dat223[2] . '-' . $dat223[3];
                     }
 
