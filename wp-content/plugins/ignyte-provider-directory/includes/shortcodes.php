@@ -280,28 +280,57 @@ function ignyte_provider_search_form_shortcode($atts)
 
 function ignyte_provider_search_get_results($atts){
 
-    $specialty = sanitize_text_field($_POST["data"]["specialty"]);
-    $dlocation = sanitize_text_field($_POST["data"]["dlocation"]);
-    $gender = sanitize_text_field($_POST["data"]["gender"]);
-    $language = sanitize_text_field($_POST["data"]["language"]);
-    $providername = sanitize_text_field($_POST["data"]["providername"]);
-    $showall = sanitize_text_field($_POST["data"]["showall"]);
-    $orderby = sanitize_text_field($_POST['data']['orderby']);
+    // $specialty = sanitize_text_field($_POST["data"]["specialty"]);
+    // $dlocation = sanitize_text_field($_POST["data"]["dlocation"]);
+    // $gender = sanitize_text_field($_POST["data"]["gender"]);
+    // $language = sanitize_text_field($_POST["data"]["language"]);
+    // $providername = sanitize_text_field($_POST["data"]["providername"]);
+    // $showall = sanitize_text_field($_POST["data"]["showall"]);
+    // $orderby = sanitize_text_field($_POST['data']['orderby']);
     // $currentlang = sanitize_text_field($_POST['data']['currentlang']);
+
+    if(isset($_POST["data"]["specialty"])) {
+        $specialty = sanitize_text_field($_POST["data"]["specialty"]);
+    }
+    if(isset($_POST["data"]["dlocation"])) {
+        $dlocation = sanitize_text_field($_POST["data"]["dlocation"]);
+    }
+    if(isset($_POST["data"]["gender"])) {
+        $gender = sanitize_text_field($_POST["data"]["gender"]);
+    }
+    if(isset($_POST["data"]["language"])) {
+        $language = sanitize_text_field($_POST["data"]["language"]);
+    }
+    if(isset($_POST["data"]["providername"])) {
+        $providername = sanitize_text_field($_POST["data"]["providername"]);
+    }
+    if(isset($_POST["data"]["showall"])) {
+        $showall = sanitize_text_field($_POST["data"]["showall"]);
+    }
+    if(isset($_POST["data"]["orderby"])) {
+        $orderby = sanitize_text_field($_POST["data"]["orderby"]);
+    }
+    if(isset($_POST["data"]["currentlang"])) {
+        $currentlang = sanitize_text_field($_POST["data"]["currentlang"]);
+    }
+
     $currentLang = pll_current_language();
-    $lslug=pll_current_language('slug');
+    $lslug = pll_current_language('slug');
     $prevpage = 1;
     $defaultload =12;
-    $providertype='grid-view';
+    $providertype = 'grid-view';
     $firstload = -1;
-    if ($_GET['type']) {
-        $providertype=$_GET['type'];
+    if (isset( $_GET['type'] ) ) {
+        $providertype = $_GET['type'];
     }
 	if (isset($_GET['location'])) {
         $selected_loc= sanitize_text_field($_GET['location']);
 		$ignyte_location = str_replace( '-', ' ', $selected_loc );
 		$location = ucwords( $ignyte_location );
+    } else{
+        $location = '';
     }
+
     $nextpage = $prevpage + 1;
     $args = array(
         'post_type'      => 'ignyte_provider',
@@ -323,7 +352,9 @@ function ignyte_provider_search_get_results($atts){
     $gird = '';
     $list = '';
     $prefix='';
-    if ($currentlang=="es-ES"){
+
+    $currentlang = '';
+    if ( $currentlang == 'es-ES' ){
         $prefix='/es';
     }
 
@@ -403,10 +434,19 @@ function ignyte_provider_search_get_results($atts){
         }
 
         $locationlist = rtrim($locationlist, ', ');
-        $docmale = array_reverse(unserialize($docmeta['ignyte_gender[]'][0]));
-        foreach ($docmale as $docm) {
-            $removespace2 = preg_replace('/\s+/', '', $docm);
-            $listclass .= $removespace2 . ' ';
+        // $docmale = array_reverse(unserialize($docmeta['ignyte_gender[]'][0]));
+        // foreach ($docmale as $docm) {
+        //     $removespace2 = preg_replace('/\s+/', '', $docm);
+        //     $listclass .= $removespace2 . ' ';
+        // }
+
+        $nhc_docmeta_data = unserialize($docmeta['ignyte_gender[]'][0]);
+        if ($nhc_docmeta_data !== false && is_array($nhc_docmeta_data)) {
+            $docmale = array_reverse($nhc_docmeta_data);
+            foreach ($docmale as $docm) {
+                $removespace2 = preg_replace('/\s+/', '', $docm);
+                $listclass .= $removespace2 . ' ';
+            }
         }
 
         // Add providers category class
@@ -819,8 +859,7 @@ function ignyte_provider_search_get_results($atts){
 
         </script>
         ";
-    if($_GET['pp'])
-    {
+    if( isset( $_GET['pp'] ) ) {
         $script .='<script>jQuery(document).ready(function () {
             // Handler for .ready() called.
             jQuery(\'html, body\').animate({
