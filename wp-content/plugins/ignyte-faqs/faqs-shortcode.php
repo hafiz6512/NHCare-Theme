@@ -385,8 +385,7 @@ function ignyte_faqs_shortcode($atts)
 
     });
 </script>";
-    if($_GET['pp'])
-    {
+    if( isset( $_GET['pp'] ) ){
         $script .='<script>jQuery(document).ready(function () {
     // Handler for .ready() called.
     jQuery(\'html, body\').animate({
