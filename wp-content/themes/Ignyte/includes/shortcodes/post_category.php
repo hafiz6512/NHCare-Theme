@@ -57,10 +57,18 @@ function ignyte_hero_shortcode($atts)
         $tday = get_the_date("d", $p->ID);
         $tmonth = get_the_date("F", $p->ID);
         $tyear = get_the_date("Y", $p->ID);
-        $image = $thumbnail[0];
+        // $image = $thumbnail[0];
+        if($thumbnail){
+            $image = $thumbnail[0];
+        }else{
+            $image = '';
+        }
         //var_dump(file_get_contents($thumbnail[0]));
         $meta_values = get_post_meta($p->ID);
-        $fallback = $meta_values["ignyte-service-fallback-image"][0];
+        // $fallback = $meta_values["ignyte-service-fallback-image"][0];
+        if (isset($meta_values["ignyte-service-fallback-image"])){
+            $fallback = $meta_values["ignyte-service-fallback-image"][0];
+        }
 
 
         $return .= '<div class="row top margin-0" >
@@ -143,10 +151,19 @@ function ignyte_featured($atts)
         $tday = get_the_date("d", $p->ID);
         $tmonth = get_the_date("F", $p->ID);
         $tyear = get_the_date("Y", $p->ID);
-        $image = $thumbnail[0];
+
+        // $image = $thumbnail[0];
+        if($thumbnail){
+            $image = $thumbnail[0];
+        }else{
+            $image = '';
+        }
         //var_dump(file_get_contents($thumbnail[0]));
         $meta_values = get_post_meta($p->ID);
-        $fallback = $meta_values["ignyte-service-fallback-image"][0];
+        // $fallback = $meta_values["ignyte-service-fallback-image"][0];
+        if (isset($meta_values["ignyte-service-fallback-image"])){
+            $fallback = $meta_values["ignyte-service-fallback-image"][0];
+        }
 
         $return .= '  <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12 bottom-60" onclick=" javascript:location.href=\'' . get_permalink($p->ID) . '\'" >
                     <div class="article">
@@ -210,7 +227,7 @@ function ignyte_posts($atts)
         foreach ($category_detail as $cd) {
             $catmainid = $cd->term_id;
             $cat_data = get_option("taxonomy_$catmainid");
-            if ($cat_data['labelclass'] != '') {
+            if (isset( $cat_data['labelclass'] ) != '') {
                 $labelclass = $cat_data['labelclass'];
             }
             if ($catid) {
@@ -229,12 +246,20 @@ function ignyte_posts($atts)
         $tday = get_the_date("d", $p->ID);
         $tmonth = get_the_date("F", $p->ID);
         $tyear = get_the_date("Y", $p->ID);
-        $image = $thumbnail[0];
+        // $image = $thumbnail[0];
+        if($thumbnail){
+            $image = $thumbnail[0];
+        }else{
+            $image = '';
+        }
 
         $finaldatefilter = get_the_date("Ymd", $p->ID);
         //var_dump(file_get_contents($thumbnail[0]));
         $meta_values = get_post_meta($p->ID);
-        $fallback = $meta_values["ignyte-service-fallback-image"][0];
+        // $fallback = $meta_values["ignyte-service-fallback-image"][0];
+        if (isset($meta_values["ignyte-service-fallback-image"])){
+            $fallback = $meta_values["ignyte-service-fallback-image"][0];
+        }
 
 
         $return .= '<div class="col-lg-4 col-md-6 col-sm-6 col-xs-12 grid-view element-item ' . $catslug . '" onclick=" javascript:location.href=\'' . get_permalink($p->ID) . '\'" data-ticks="' . $finaldatefilter . '">
@@ -320,8 +345,6 @@ function ignyte_posts($atts)
                 </li>
                 <li role="presentation" data-sort-direction="asc" data-sort-desc="' . $namez2 . '" data-sort-asc="' . $namez . '" data-sort-value="fileby" class="short_li">' . $namez2 . '</a>
                 </li>
-                   <!--<li role="presentation" data-sort-direction="asc"  data-sort-desc="' . $yearbulk2 . '" data-sort-asc="' . $yearbulk . '" data-sort-value="filedate" class="short_li">' . $yearbulk . '</a>
-                </li>-->
             </ul>';
 
     $return2 .= '<!-- <ul id="filters" class="button-group-home">
@@ -565,7 +588,12 @@ function getvideo2slide($ids,$view_button_label)
         $tday = get_the_date("d", $p->ID);
         $tmonth = get_the_date("F", $p->ID);
         $tyear = get_the_date("Y", $p->ID);
-        $image = $thumbnail[0];
+        // $image = $thumbnail[0];
+        if($thumbnail){
+            $image = $thumbnail[0];
+        }else{
+            $image = '';
+        }
         //var_dump(file_get_contents($thumbnail[0]));
         $meta_values = get_post_meta($p->ID);
         // $docmeta = get_post_meta($doc->ID);
@@ -674,8 +702,11 @@ function ignyte_news_slider_shortcode($atts)
         $tday = get_the_date("d", $p->ID);
         $tmonth = get_the_date("F", $p->ID);
         $tyear = get_the_date("Y", $p->ID);
+        // $image = $thumbnail[0];
         if($thumbnail){
             $image = $thumbnail[0];
+        }else{
+            $image = '';
         }
         // var_dump(file_get_contents($thumbnail[0]));
 		$meta_values = get_post_meta($p->ID);
