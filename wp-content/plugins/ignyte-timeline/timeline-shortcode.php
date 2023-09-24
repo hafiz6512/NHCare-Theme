@@ -40,6 +40,7 @@ function ignyte_timeline_shortcode($atts)
             $timelineselected = false;
         }
 
+        $sticky ='';
         $sticky .= ' <div class="nav-op"><a href="#' . $sslug . '">' . $title . '</a></div>';
         $return .= ' <div class="content thesection" id="' . $sslug . '">
                            <h5 class="red">' . $title . '</h5>';
