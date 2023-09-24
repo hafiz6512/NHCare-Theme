@@ -24,7 +24,7 @@ $id = get_the_ID();
 
 
         <div id="main-content">
-            <div class="container-fluid">
+            <div class="container-fluid single-service">
                 <!-- Main editor page contents -->
                 <div class="row">
                     <div class="col-xs-12 col-sm-12">
@@ -62,6 +62,7 @@ $id = get_the_ID();
                                                 $locations = array_reverse(unserialize($page_meta["ignyte_locations[]"][0]), true);
                                                 $locSingleUrl = home_url( '/locations-list/' );
                                                 $locSingleEsUrl = home_url( '/es/locations-list/' );
+                                                $locurl = '';
 
                                             if ($locations){ ?>
                                                 <ul>
@@ -96,7 +97,7 @@ $id = get_the_ID();
 
                             <div class="container-fluid">
                                 <div class="row service-provider">
-                                        <?php dynamic_sidebar('Services CTA');
+                                    <?php dynamic_sidebar('Services CTA');
                                         //echo do_shortcode( '[random-doctor]' ); ?>
                                 </div>
                             </div>
@@ -108,30 +109,29 @@ $id = get_the_ID();
         </div> <!-- /#main-content -->
 
 	<?php
-	//wp_reset_query();
+    	//wp_reset_query();
 
-	$currentlang = get_bloginfo('language');
- switch($currentlang){
-	case "en-US":
-		$parent=get_page_by_title( "Health Services" );
-	break;
-	case "es-ES":
-		$parent=get_page_by_title( "Servicios" );
-	break;
- }
-	$parent_meta=get_post_meta( $parent->ID );
+        $parent = null;
+    	$currentlang = get_bloginfo('language');
+        switch($currentlang){
+        	case "en-US":
+        		$parent = get_the_title( "Health Services" );
+        	break;
+        	case "es-ES":
+        		$parent = get_the_title( "Servicios" );
+        	break;
+        }
+
+        // $parent_meta = get_post_meta( $parent->ID );
+        if ($parent !== null && is_object($parent) && isset($parent->ID)) {
+            $parent_meta = get_post_meta($parent->ID);
+            if( $parent_meta["ignyte_bottom_services_shortcode_content"][0]!=""){
+        }
 
 	?>
 
-    <?php if($parent_meta["ignyte_bottom_services_shortcode_content"][0]!=""){ ?>
-
-    <!-- If there are shortcodes / content blocks, this shows -->
      <div id="bottom-content">
-
-     	<!-- Shortcodes / Content blocks would stack here -->
-        <?php // echo apply_filters('the_content', get_post_meta($post->ID, 'ignyte_bottom_shortcode_content', true)); ?>
         <?php echo do_shortcode(get_post_meta($parent->ID, 'ignyte_bottom_services_shortcode_content', true));?>
-
      </div> <!-- /#bottom-content -->
 
 	<?php } ?>
