@@ -150,7 +150,7 @@ function ignyte_service_location_contents() {
 		//var_dump($locations);
 		foreach($locations as $loc){
 			$getLocationsPostName = str_replace(' - ', ' ', $loc->post_title);
-			if ($selected_locations[$loc->ID]<>''){
+			if (isset($selected_locations[$loc->ID]) && $selected_locations[$loc->ID] != ''){
 				echo "<input type='checkbox' name='ignyte_locations[".$loc->ID."]' CHECKED value='".$getLocationsPostName."'>".$getLocationsPostName."<br />";
 			}else{
 				echo "<input type='checkbox' name='ignyte_locations[".$loc->ID."]' value='".$getLocationsPostName."'>".$getLocationsPostName."<br />";
